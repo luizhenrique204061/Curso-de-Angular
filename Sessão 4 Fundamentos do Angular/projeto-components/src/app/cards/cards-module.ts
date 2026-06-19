@@ -4,10 +4,11 @@ import { Card } from '../card/card';
 import { CardRoxo } from '../card-roxo/card-roxo';
 import { CardButton } from '../card-button/card-button';
 import { CardRoxoButton } from '../card-roxo-button/card-roxo-button';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [Card, CardRoxo, CardButton, CardRoxoButton],
-  imports: [CommonModule],
+  imports: [CommonModule, MatSliderModule],
   exports: [Card, CardRoxo],
 })
 export class CardsModule {}
