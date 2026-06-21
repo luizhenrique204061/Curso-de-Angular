@@ -7,7 +7,7 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.scss'
 })
 export class App {
-  inputText: string = "Texto Inicial Alterado";
+  inputText = "Texto Inicial Alterado";
   inputType = "text";
   isDesativado = false;
 
@@ -30,6 +30,17 @@ export class App {
 
   logInputText() {
     console.log(this.inputText);
+  }
+
+
+  handleInputKeyUp(event: KeyboardEvent) {
+    const valorAtual = (event.target as HTMLInputElement).value;
+    console.log(valorAtual);
+  }
+
+  handleInputEvent(event: Event) {
+    const valorAtual = (event.target as HTMLInputElement).value;
+    console.log(valorAtual);
   }
 
 }

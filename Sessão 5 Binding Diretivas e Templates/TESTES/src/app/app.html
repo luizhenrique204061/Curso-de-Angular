@@ -1,4 +1,4 @@
-<input id="meu-id" type="text" [value]="inputText" [type]="inputType" [disabled]="isDesativado">
+<input id="meu-id" type="text" [value]="inputText" [type]="inputType" [disabled]="isDesativado" (keyup)="handleInputKeyUp($event)" (input)="handleInputEvent($event)">
 <br>
 
 <button (click)="ativarInput()">Habilitar</button>
