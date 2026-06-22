@@ -10,3 +10,35 @@
 <br>
 
 <button (click)="logInputText()">Log</button>
+<br>
+
+<button [attr.title]="tituloDoBotao">Teste</button>
+
+<button [attr.disabled]="botaoDesativado ? true : null">Botão Desabilitar</button>
+<br>
+
+<button (click)="onButtonClick()">Mudar Título</button>
+<br>
+
+<button class="devoe">Botão do Devoe</button>
+<br>
+<button [style.width]="widthButton" [style.backgroundColor]="corDoBotao" [style.color]="corDoTexto" class="devoe">Botão do Devoe Modificado 1</button>
+<br>
+<button [style]="{ width: widthButton, backgroundColor: corDoBotao, color: corDoTexto }" class="devoe">
+  Botão do Devoe Modificado 2
+</button>
+<br>
+
+<button [style]="styleObj" class="devoe">
+Botão do Devoe Modificado 3
+</button>
+<br>
+
+<button (click)="updateStyleObj()" class="devoe">Atualizar Objeto</button>
+<br>
+
+<button (click)="updateStyleObjCorreto()" class="devoe">Atualizar Objeto Correto</button>
+<br>
+
+
+<button (click)="updateWidth()" class="devoe">Atualizar Tamanho do Botão</button>
