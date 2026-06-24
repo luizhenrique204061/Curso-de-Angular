@@ -11,6 +11,22 @@ export class App {
   inputType = "text";
   isDesativado = false;
 
+  widthButton = "200px";
+  corDoBotao = "blue";
+  corDoTexto = "white";
+
+  styleObj = {
+    width: "160px",
+    backgroundColor: "red",
+    color: "white"
+  }
+
+  tituloDoBotao = "Devoe";
+  botaoDesativado = true;
+
+  isRedButton = true;
+  isGreen = true;
+  jaClicou = false;
 
   ativarInput() {
     this.isDesativado = false;
@@ -43,24 +59,12 @@ export class App {
     console.log(valorAtual);
   }
 
-  tituloDoBotao = "Devoe";
-  botaoDesativado = true;
-
 
   onButtonClick() {
     this.tituloDoBotao = "Título Alterado!!!!";
     this.botaoDesativado = !this.botaoDesativado;
   }
 
-  widthButton = "200px";
-  corDoBotao = "blue";
-  corDoTexto = "white";
-
-  styleObj = {
-    width: "160px",
-    backgroundColor: "red",
-    color: "white"
-  }
 
   updateStyleObj() {
     console.log("Atualizando estilo do botão...");
@@ -76,11 +80,23 @@ export class App {
       backgroundColor: "lightblue",
       color: "black"
     }
-  
+
   }
 
   updateWidth() {
     this.widthButton = "450px";
+  }
+
+  mudarCorDoBotaoParaVerde() {
+    if(this.isGreen == false) {
+      this.isGreen = true
+    }
+  }
+
+  mudarCorDoBotaoParaVermelho() {
+    if(this.isGreen == true) {
+      this.isGreen = false
+    }
   }
 
 }

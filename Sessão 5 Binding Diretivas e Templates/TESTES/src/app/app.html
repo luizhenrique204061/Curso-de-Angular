@@ -42,3 +42,9 @@ Botão do Devoe Modificado 3
 
 
 <button (click)="updateWidth()" class="devoe">Atualizar Tamanho do Botão</button>
+<br>
+<br>
+
+<button (click)="mudarCorDoBotaoParaVermelho()" [class.red-button]="isRedButton">Vermelho</button>
+<button (click)="mudarCorDoBotaoParaVerde()" [class.green-button]="true">Verde</button>
+<button [class]="{'red-button': !isGreen, 'green-button': isGreen}">Objeto</button>
