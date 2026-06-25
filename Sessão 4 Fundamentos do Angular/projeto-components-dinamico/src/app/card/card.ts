@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -7,11 +7,17 @@ import { Component, input, Input } from '@angular/core';
   styleUrl: './card.scss',
 })
 export class Card {
-  @Input() tipoDePlano: string = "";
+  @Input({transform: (valor: string) => deixarLetrasMaiculas(valor)}) tipoDePlano: string = "";
   @Input({required: true}) precoDoPlano: number = 0;
 
 
   buttonClicked(valorRecebido: boolean) {
     console.log("O botão foi clicado. Valor recebido:" + valorRecebido)
   }
+}
+
+function deixarLetrasMaiculas(valor: string) {
+  console.log("A função está sendo chamada. O valor uppecase é: " + valor)
+  return valor.toUpperCase();
+
 }

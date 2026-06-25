@@ -11,4 +11,10 @@ export class App {
 
   cardTipoDoPlano = "Simples";
   cardValorDoPlano = 100;
+
+
+  mudarTipoDePlano(texto: string) {
+    this.cardTipoDoPlano = texto;
+  }
+
 }
