@@ -7,11 +7,22 @@ import { Component, input, Input } from '@angular/core';
   styleUrl: './card.scss',
 })
 export class Card {
-  @Input() tipoDePlano: string = "";
+  private _tipoDePlano: string = "";
+
+  @Input() set tipoDePlano(valor: string) {
+    this._tipoDePlano = valor.toUpperCase();
+  }
+
+  get tipoDePlano(): string {
+    return this._tipoDePlano;
+  }
+
   @Input({required: true}) precoDoPlano: number = 0;
 
 
   buttonClicked(valorRecebido: boolean) {
     console.log("O botão foi clicado. Valor recebido:" + valorRecebido)
+
+    console.log("Tipo de Plano em Letras Maiúsculas: " + this.tipoDePlano)
   }
 }
