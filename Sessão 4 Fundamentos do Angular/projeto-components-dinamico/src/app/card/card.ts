@@ -11,7 +11,7 @@ export class Card {
   @Input({required: true}) precoDoPlano: number = 0;
 
 
-  buttonClicked(valorEmitido: boolean) {
-    console.log("O botão foi clicado. Valor recebido:" + valorEmitido)
+  buttonClicked(valorRecebido: boolean) {
+    console.log("O botão foi clicado. Valor recebido:" + valorRecebido)
   }
 }
