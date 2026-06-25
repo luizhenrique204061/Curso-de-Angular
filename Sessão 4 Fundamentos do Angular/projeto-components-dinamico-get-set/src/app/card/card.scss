@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.card {
+    max-width: 650px;
+    background-color: #fd7557;
+    border-radius: 25px;
+    padding: 30px;
+    font-family: 'poppins', sans-serif;
+
+
+    &__item {
+        padding: 10px;
+    }
+
+
+    &__plan {
+        font-size: 22px;
+    }
+
+    &__price {
+        font-weight: 600;
+        font-size: 40px;
+    }
+
+}
+
+
+// mat-slider {
+//   /* Muda a cor da linha preenchida (progresso) */
+//   --mat-slider-active-track-color: yellow; /* Exemplo: branco */
+  
+//   /* Muda a cor da bolinha */
+//   --mat-slider-handle-color: blue;
+  
+  
+//   /* Muda a cor da linha de fundo (a parte não preenchida) */
+//   --mat-slider-inactive-track-color: gray;
+// }

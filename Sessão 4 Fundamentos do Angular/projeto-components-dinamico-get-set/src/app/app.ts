@@ -1,0 +1,18 @@
+import { Component, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.html',
+  standalone: false,
+  styleUrl: './app.scss'
+})
+export class App {
+  protected readonly title = signal('projeto-components');
+
+  cardTipoDoPlano = "Simples";
+  cardValorDoPlano = 100;
+
+  mudarTipoDePlano(texto: string) {
+    this.cardTipoDoPlano = texto;
+  }
+}
