@@ -1,8 +1,17 @@
-<app-button [textoDoBotao]="'Adquirir'" 
-[corDoBotao]="'branco'" 
-[isDesativado]="true"
-(buttonClickedEmiter)="buttonClicked()"></app-button>
+<div class="card-container">
+<app-card 
+[tipoDePlano]="'Simples'"
+[precoDoPlano]="100"
+[cardStyle]="'laranja'"
+[cardBotaoDesativado]="true"
+(buttonClickedEmit)="onCardButton()"
+></app-card>
 
-<app-button [textoDoBotao]="'Adquirir 2'" 
-[corDoBotao]="'roxo'"
-(buttonClickedEmiter)="buttonClicked()"></app-button>
+
+<app-card 
+[tipoDePlano]="'Simples'"
+[precoDoPlano]="200"
+[cardStyle]="'roxo'"
+(buttonClickedEmit)="onCardButton()"
+></app-card>
+</div>

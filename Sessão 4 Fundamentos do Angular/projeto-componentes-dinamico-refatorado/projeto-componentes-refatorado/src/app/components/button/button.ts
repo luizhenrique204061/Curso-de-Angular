@@ -9,9 +9,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class Button {
   @Input({required: true}) textoDoBotao: string = ""
   @Input({required: true}) 
-  corDoBotao: 'branco' | 'roxo' = "branco";
+  buttonStyle: 'branco' | 'roxo' = "branco";
 
-  @Input() isDesativado = false
+  @Input() isDesativado = false;
 
 
   @Output() buttonClickedEmiter = new EventEmitter<void>()

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,8 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
 
-
-  buttonClicked() {
-    console.log("Botão Clicado")
+  onCardButton() {
+    console.log("Chamada de API");
   }
+
 }

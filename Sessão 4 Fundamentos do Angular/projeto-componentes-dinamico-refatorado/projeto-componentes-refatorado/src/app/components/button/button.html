@@ -1,6 +1,6 @@
 <button class="botao" 
-[class]="{'botao--branco': corDoBotao === 'branco' ? true: false, 
-'botao--roxo': corDoBotao === 'roxo' ? true: false}"
+[class]="{'botao--branco': buttonStyle === 'branco' ? true: false, 
+'botao--roxo': buttonStyle === 'roxo' ? true: false}"
 (click)="onButtonClicked()"
 [disabled]="isDesativado"
 >{{textoDoBotao}}</button>
