@@ -1,0 +1,14 @@
+<div class="card"
+[class]="{'card--laranja': cardStyle === 'laranja' ? true: false, 
+'card--roxo': cardStyle === 'roxo' ? true: false}"
+>
+    <div class="card--plano card--item">Plano <b>{{tipoDePlano}}</b></div>
+    <div class="card--preco card--item">R$ {{precoDoPlano}},00/Mês</div>
+
+    <app-button
+    [textoDoBotao]="'Adquirir'"
+    [buttonStyle]="cardStyle === 'laranja' ? 'branco': 'roxo'"
+    [isDesativado]="cardBotaoDesativado"
+    (buttonClickedEmiter)="onButtonClicked()"
+    ></app-button>
+</div>

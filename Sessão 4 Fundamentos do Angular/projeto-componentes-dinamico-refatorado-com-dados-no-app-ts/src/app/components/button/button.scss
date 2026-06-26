@@ -1,0 +1,32 @@
+.botao {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    position: relative;
+
+    // A mágica acontece aqui: SÓ move para baixo se NÃO estiver desativado
+    &:active:not(:disabled) {
+        bottom: -2px;
+    }
+
+    // Boa prática: muda o cursor e a opacidade quando estiver desativado
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6; 
+    }
+
+    &--branco {
+        background-color: white;
+    }
+
+
+    &--roxo {
+        background-color: #a056d9;
+    }
+}

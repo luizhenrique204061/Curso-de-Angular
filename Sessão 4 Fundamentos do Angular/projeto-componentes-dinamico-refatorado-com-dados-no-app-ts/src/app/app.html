@@ -1,0 +1,11 @@
+<div class="card-container">
+  @for (plano of planos; track plano.tipo) {
+    <app-card 
+      [tipoDePlano]="plano.tipo"
+      [precoDoPlano]="plano.preco"
+      [cardStyle]="plano.estilo"
+      [cardBotaoDesativado]="plano.desativado ?? false"
+      (buttonClickedEmit)="onCardButton()">
+    </app-card>
+  }
+</div>
