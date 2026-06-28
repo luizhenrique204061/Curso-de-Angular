@@ -1,0 +1,34 @@
+<div 
+style="background-color: green;"
+*ngIf="mostrarDiv; else meuTemplate"
+>Sou uma div</div>
+
+<ng-template #meuTemplate>
+  <div 
+style="background-color: red;"
+>Sou uma outra div</div>
+</ng-template>
+
+<button (click)="mudarExibicaoDiv()">Sou uma div</button>
+
+
+<!-- <ng-container 
+*ngIf="mostrarDiv; 
+then meuTemplate; else meuOutroTemplate"></ng-container>
+
+<ng-template #meuTemplate>
+  <div 
+style="background-color: green;"
+>Sou uma outra div "then"</div>
+</ng-template>
+
+<ng-template #meuOutroTemplate>
+  <div 
+style="background-color: red;"
+>Sou uma outra div "else"</div>
+</ng-template>
+
+<button (click)="mudarExibicaoDiv()">Sou uma div</button> -->
+
+<!-- <div style="display: none;">Sou uma div escondida</div> -->
+<!-- <div style="visibility: hidden;">Sou uma div escondida</div> -->
