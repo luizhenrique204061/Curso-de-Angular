@@ -1,0 +1,12 @@
+<div class="lista">
+  <div class="item" 
+  *ngFor="let pessoas of listaPessoas; 
+  let i = index; let isImpar = odd;"
+  [class.item--impar]="isImpar"
+  (click)="selecionarPessoa(i)"
+  [class.item--destacado]="indiceDaPessoaSelecionada === i">
+
+    <p class="item--nome">{{i}} - {{pessoas.nome}}</p>
+    <p class="item--idade">{{pessoas.idade}}</p>
+
+  </div>
