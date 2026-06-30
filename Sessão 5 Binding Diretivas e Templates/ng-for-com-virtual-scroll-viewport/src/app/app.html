@@ -1,11 +1,11 @@
 <cdk-virtual-scroll-viewport itemSize="90" class="lista">
-  <div class="item" 
-       *cdkVirtualFor="let pessoas of listaPessoas; let i = index; let isImpar = odd"
-       [class.item--impar]="isImpar"
-       (click)="selecionarPessoa(i)"
-       [class.item--destacado]="indiceDaPessoaSelecionada === i">
-
-    <p class="item--nome">{{i}} - {{pessoas.nome}}</p>
-    <p class="item--idade">{{pessoas.idade}}</p>
-  </div>
+  <app-pessoa 
+    *cdkVirtualFor="let pessoas of listaPessoas; let i = index; let isImpar = odd"
+    [nomeDaPessoa]="pessoas.nome"
+    [idadeDaPessoa]="pessoas.idade"
+    [pessoaIndice]="i"
+    [isImpar]="isImpar"
+    [isSelecionado]="indiceDaPessoaSelecionada === i"
+    (pessoaSelecionadaEmit)="selecionarPessoa($event)">
+  </app-pessoa>
 </cdk-virtual-scroll-viewport>
