@@ -1,0 +1,9 @@
+<div class="item" 
+  [class.item--impar]="isImpar"
+  (click)="isPessoaSelecionada()"
+  [class.item--destacado]="isSelecionado">
+
+    <p class="item--nome">{{pessoaIndice}} - {{nomeDaPessoa}}</p>
+    <p class="item--idade">{{idadeDaPessoa}}</p>
+
+  </div>
