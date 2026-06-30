@@ -1,9 +1,14 @@
 .lista {
+    height: 100dvh;
     border: 3px solid black;
     box-sizing: border-box;
 }
 
 .item {
+    /* 1. ADICIONE ESTAS DUAS LINHAS: O tamanho exato do HTML */
+    height: 90px;
+    box-sizing: border-box; 
+
     padding: 15px;
     background-color: beige;
     cursor: pointer;
