@@ -1,0 +1,8 @@
+<h1 class=is-grande [ngClass]="{
+  'is-verde': isVerde,
+  'is-laranja': !isVerde
+}"
+>Sou um H1!!!</h1>
+
+<button (click)="irParaVerde()">Verde</button>
+<button (click)="irParaLaranja()">Laranja</button>
