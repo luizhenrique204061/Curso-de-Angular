@@ -1,0 +1,10 @@
+<h1 [ngStyle]="{
+  'font-size': fontSize + 'px',
+  'color': textColor
+}">Sou um H1!!!</h1>
+
+<button (click)="aumentarTamanhoDaFonte()">+A</button>
+<button (click)="diminuirTamanhoDaFonte()">-A</button>
+<br>
+
+<button (click)="mudarCorDoBotao()">{{textoDoBotao}}</button>
