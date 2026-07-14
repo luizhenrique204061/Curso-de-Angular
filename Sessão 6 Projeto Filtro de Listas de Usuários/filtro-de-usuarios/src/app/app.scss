@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    height: 100dvh;
+}
+
+.container_esquerdo {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.div_topo {
+    flex-grow: 1;
+    background-color: aqua;
+}
+
+.div_principal_esquerda {
+    height: 80%;
+    background-color: brown;
+}
+
+.div_direita {
+    width: 30%;
+    height: 100dvh;
+    
+}
