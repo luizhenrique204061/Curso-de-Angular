@@ -4,10 +4,11 @@ import { AngularMaterialModule } from '../angular-material/angular-material-modu
 import { DetalhesDoUsuario } from './detalhes-do-usuario/detalhes-do-usuario';
 import { Filtro } from './filtro/filtro';
 import { FormsModule } from '@angular/forms';
+import { ListaDeUsuarios } from './lista-de-usuarios/lista-de-usuarios';
 
 @NgModule({
-  declarations: [DetalhesDoUsuario, Filtro],
-  imports: [CommonModule, AngularMaterialModule, FormsModule],
-  exports: [DetalhesDoUsuario, Filtro],
+  declarations: [DetalhesDoUsuario, Filtro, ListaDeUsuarios],
+  imports: [CommonModule, AngularMaterialModule, FormsModule,],
+  exports: [DetalhesDoUsuario, Filtro, ListaDeUsuarios],
 })
 export class ComponentsModule {}

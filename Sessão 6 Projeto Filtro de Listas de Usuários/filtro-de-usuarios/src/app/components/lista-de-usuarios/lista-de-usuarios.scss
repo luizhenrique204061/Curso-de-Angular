@@ -1,0 +1,9 @@
+.lista_de_usuarios {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    &__item {
+        cursor: pointer;
+    }
+}
