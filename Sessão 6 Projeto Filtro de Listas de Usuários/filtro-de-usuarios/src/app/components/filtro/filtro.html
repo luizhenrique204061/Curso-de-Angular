@@ -1,0 +1,47 @@
+<div class="filtro">
+    <form class="formulario">
+        <div class="formulario__nome">
+            <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Ex. Pizza" value="Devoe">
+            </mat-form-field>
+        </div>
+
+        <div class="formulario__date_picker">
+            <mat-form-field appearance="fill">
+                <mat-label>Data de Cadastro</mat-label>
+
+                <!-- Container do Range Datepicker -->
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Data inicial">
+                    <input matEndDate placeholder="Data final">
+                </mat-date-range-input>
+
+                <!-- Texto de dica abaixo do campo -->
+                <mat-hint>DD/MM/AAAA – DD/MM/AAAA</mat-hint>
+
+                <!-- Botão/Ícone do calendário -->
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+
+                <!-- O componente de Range Picker -->
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+        </div>
+
+        <div class="formulario__status">
+            <mat-form-field appearance="fill">
+                <mat-label>Status do Usuário</mat-label>
+                <mat-select placeholder="Selecione um status">
+                    @for (status of statusList; track status.valor) {
+                    <mat-option [value]="status.valor">{{ status.valor }}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="formulario__botao">
+            <button mat-raised-button color="primary">Filtrar</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,29 @@
+.filtro {
+    width: 100%;
+    height: 100%;
+}
+
+.formulario {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    &__nome {
+        
+    }
+
+    &__date_picker {
+
+    }
+
+    &__status {
+
+    }
+
+    &__botao {
+        
+    }
+}
