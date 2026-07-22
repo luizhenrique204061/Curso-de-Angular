@@ -5,14 +5,14 @@
         </div>
 
         <div class="div_principal_esquerda">
-            <app-lista-de-usuarios></app-lista-de-usuarios>
+            <app-lista-de-usuarios (usuarioSelecionadoEvent)="onUsuarioSelecionado($event)"></app-lista-de-usuarios>
         </div>
 
     </div>
 
     <div class="div_direita">
 
-        <app-detalhes-do-usuario></app-detalhes-do-usuario>
+        <app-detalhes-do-usuario [usuario]="usuarioSelecionado"></app-detalhes-do-usuario>
     </div>
 
 

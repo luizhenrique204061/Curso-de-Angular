@@ -1,52 +1,52 @@
 <div class="detalhes_do_usuario">
-
     <mat-list>
         <mat-list-item class="alinhar_texto_ao_centro">
             <span class="titulo-destaque">Detalhes do Usuário</span>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>
 
+        <mat-list-item>
             <span class="meu-rotulo">Nome: </span>
-            <span class="meu-valor">Fulano da Silva</span>
-
+            <span class="meu-valor">{{ usuario?.nome }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>
 
+        <mat-list-item>
             <span class="meu-rotulo">Email: </span>
-            <span class="meu-valor">luizh2190@gmail.com</span>
-
+            <span class="meu-valor">{{ usuario?.email }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>
 
+        <mat-list-item>
             <span class="meu-rotulo">Telefone: </span>
-            <span class="meu-valor">(82) 98853-3405</span>
-
+            <!-- Chama o método de formatação passando o telefone -->
+            <span class="meu-valor">{{ formatarTelefone(usuario?.telefone) }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>
 
+        <mat-list-item>
             <span class="meu-rotulo">Endereço: </span>
-            <span class="meu-valor">Condomínio Residencial Recanto Dos Vales. Rua B. Número 60</span>
-
+            <span class="meu-valor">
+                @if (usuario?.endereco) {
+                    {{ usuario?.endereco?.rua }}, {{ usuario?.endereco?.numero }}, {{ usuario?.endereco?.cidade }} - {{ usuario?.endereco?.estado }}
+                }
+            </span>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>
 
+        <mat-list-item>
             <span class="meu-rotulo">Ativo: </span>
-            <span class="meu-valor">Sim</span>
-
+            <span class="meu-valor">
+                {{ usuario ? (usuario.ativo ? 'Sim' : 'Não') : '' }}
+            </span>
         </mat-list-item>
         <mat-divider></mat-divider>
+
         <mat-list-item>
-
             <span class="meu-rotulo">Data de Cadastro: </span>
-            <span class="meu-valor">14/07/2026</span>
-
+            <!-- Pipe date para formatar dd/mm/yyyy -->
+            <span class="meu-valor">{{ usuario?.dataCadastro | date:'dd/MM/yyyy' }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
     </mat-list>
-
 </div>
