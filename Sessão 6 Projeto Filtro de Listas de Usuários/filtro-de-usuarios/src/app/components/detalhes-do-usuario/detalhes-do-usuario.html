@@ -26,11 +26,12 @@
 
         <mat-list-item>
             <span class="meu-rotulo">Endereço: </span>
+            @if (usuario) {
             <span class="meu-valor">
-                @if (usuario?.endereco) {
-                    {{ usuario?.endereco?.rua }}, {{ usuario?.endereco?.numero }}, {{ usuario?.endereco?.cidade }} - {{ usuario?.endereco?.estado }}
-                }
+                {{ usuario.endereco.rua }}, {{ usuario.endereco.numero }}, {{ usuario.endereco.cidade }} - {{
+                usuario.endereco.estado }}
             </span>
+            }
         </mat-list-item>
         <mat-divider></mat-divider>
 
