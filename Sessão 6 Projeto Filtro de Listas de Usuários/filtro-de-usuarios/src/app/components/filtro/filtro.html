@@ -11,20 +11,31 @@
             <mat-form-field appearance="fill">
                 <mat-label>Data de Cadastro</mat-label>
 
-                <!-- Container do Range Datepicker -->
-                <mat-date-range-input [rangePicker]="picker">
-                    <input matStartDate placeholder="Data inicial">
-                    <input matEndDate placeholder="Data final">
+                <!-- Vincula ao FormGroup criado no TS -->
+                <mat-date-range-input [formGroup]="rangeDataGroup" [rangePicker]="picker">
+                    <input matStartDate formControlName="dataInicio" placeholder="Data inicial" readonly>
+                    <input matEndDate formControlName="dataFim" placeholder="Data final" readonly>
                 </mat-date-range-input>
 
-                <!-- Texto de dica abaixo do campo -->
-                <mat-hint>DD/MM/AAAA – DD/MM/AAAA</mat-hint>
+                <mat-hint class="hint-centralizado">DD/MM/AAAA – DD/MM/AAAA</mat-hint>
+
+                <!-- Botão para LIMPAR: verifica se há valor no controle -->
+                @if (rangeDataGroup.value.dataInicio || rangeDataGroup.value.dataFim) {
+                    <button 
+                        mat-icon-button 
+                        matIconSuffix 
+                        type="button" 
+                        aria-label="Limpar datas"
+                        (click)="limparRangeData($event)">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                }
 
                 <!-- Botão/Ícone do calendário -->
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
 
                 <!-- O componente de Range Picker -->
-                <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-date-range-picker #picker [restoreFocus]="false"></mat-date-range-picker>
             </mat-form-field>
         </div>
 
@@ -33,7 +44,7 @@
                 <mat-label>Status do Usuário</mat-label>
                 <mat-select placeholder="Selecione um status">
                     @for (status of statusList; track status.valor) {
-                    <mat-option [value]="status.valor">{{ status.valor }}</mat-option>
+                        <mat-option [value]="status.valor">{{ status.valor }}</mat-option>
                     }
                 </mat-select>
             </mat-form-field>

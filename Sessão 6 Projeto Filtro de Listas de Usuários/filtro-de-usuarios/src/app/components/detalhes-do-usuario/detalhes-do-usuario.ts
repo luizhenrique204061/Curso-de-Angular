@@ -1,18 +1,21 @@
 import { Component, Input } from '@angular/core';
 import { Usuario } from '../../classes/usuario';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-detalhes-do-usuario',
   standalone: false,
   templateUrl: './detalhes-do-usuario.html',
   styleUrl: './detalhes-do-usuario.scss',
+  providers: [DatePipe]
 })
 export class DetalhesDoUsuario {
   @Input({ required: true }) usuario?: Usuario;
+  constructor(private datePipe: DatePipe) {}
 
   formatarTelefone(telefone?: string): string {
     if (!telefone) return '';
-    
+
     // Remove qualquer caractere que não seja número
     const apenasNumeros = telefone.replace(/\D/g, '');
 
@@ -28,4 +31,16 @@ export class DetalhesDoUsuario {
 
     return telefone; // Retorna o valor original caso não encaixe
   }
+
+
+  formatarData(data?: Date | string): string {
+    if (!data) return '';
+    return this.datePipe.transform(data, 'dd/MM/yyyy') || '';
+  }
+
+  formatarAtivo(ativo?: boolean): string {
+    if (ativo === undefined || ativo === null) return '';
+    return ativo ? 'Sim' : 'Não';
+  }
+
 }

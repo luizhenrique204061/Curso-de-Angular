@@ -27,3 +27,8 @@ tr.mat-mdc-row {
         }
     }
 }
+
+
+.mat-mdc-cell, .mat-mdc-header-cell {
+    width: 33.33%; // Ou defina larguras específicas para cada coluna
+}

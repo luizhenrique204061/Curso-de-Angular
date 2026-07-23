@@ -16,14 +16,24 @@
     }
 
     &__date_picker {
+        width: 350px; // Espaço reservado suficiente para acomodar o intervalo sem empurrar os vizinhos
 
+        mat-form-field {
+            width: 100%;
+        }
+
+        .hint-centralizado {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__status {
-
+        
     }
 
     &__botao {
-        
+
     }
 }

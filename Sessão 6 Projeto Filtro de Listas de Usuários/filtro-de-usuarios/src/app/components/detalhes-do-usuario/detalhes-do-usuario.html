@@ -38,15 +38,15 @@
         <mat-list-item>
             <span class="meu-rotulo">Ativo: </span>
             <span class="meu-valor">
-                {{ usuario ? (usuario.ativo ? 'Sim' : 'Não') : '' }}
+                {{ formatarAtivo(usuario?.ativo) }}
             </span>
         </mat-list-item>
         <mat-divider></mat-divider>
 
         <mat-list-item>
             <span class="meu-rotulo">Data de Cadastro: </span>
-            <!-- Pipe date para formatar dd/mm/yyyy -->
-            <span class="meu-valor">{{ usuario?.dataCadastro | date:'dd/MM/yyyy' }}</span>
+            <!-- Chama o método de formatação criado no TS -->
+            <span class="meu-valor">{{ formatarData(usuario?.dataCadastro) }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
     </mat-list>

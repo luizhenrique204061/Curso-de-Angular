@@ -10,13 +10,13 @@
         <!-- Coluna Data de Cadastro -->
         <ng-container matColumnDef="dataCadastro">
             <th mat-header-cell *matHeaderCellDef> Data de Cadastro </th>
-            <td mat-cell *matCellDef="let element" class="lista_de_usuarios__item"> {{ element.dataCadastro | date:'dd/MM/yyyy' }} </td>
+            <td mat-cell *matCellDef="let element" class="lista_de_usuarios__item"> {{ formatarData(element.dataCadastro) }} </td>
         </ng-container>
 
         <!-- Coluna Status -->
         <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef> Status </th>
-            <td mat-cell *matCellDef="let element" class="lista_de_usuarios__item"> {{ element.ativo ? 'Ativo' : 'Inativo' }} </td>
+            <td mat-cell *matCellDef="let element" class="lista_de_usuarios__item"> {{ formatarStatus(element.ativo) }} </td>
         </ng-container>
 
         <!-- Cabeçalho -->
