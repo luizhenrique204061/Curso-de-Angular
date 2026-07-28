@@ -5,7 +5,11 @@
         </div>
 
         <div class="div_principal_esquerda">
-            <app-lista-de-usuarios (usuarioSelecionadoEvent)="onUsuarioSelecionado($event)"></app-lista-de-usuarios>
+            <!-- Passando a lista de dados via [dadosUsuarios] -->
+            <app-lista-de-usuarios 
+                [dadosUsuarios]="dadosUsuarios" 
+                (usuarioSelecionadoEvent)="onUsuarioSelecionado($event)">
+            </app-lista-de-usuarios>
         </div>
 
     </div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Usuario } from '../../classes/usuario';
 import { ListaDeUsuariosDaAplicacao } from '../../dados/lista-de-usuarios';
 import { DatePipe } from '@angular/common';
@@ -14,8 +14,8 @@ export class ListaDeUsuarios {
   @Output() usuarioSelecionadoEvent = new EventEmitter<Usuario>();
   colunasExibidas: string[] = ['nome', 'dataCadastro', 'status'];
 
-  // 2. Tipando a lista com a Classe
-  dadosUsuarios: Usuario[] = ListaDeUsuariosDaAplicacao;
+  // Agora dadosUsuarios é um Input fornecido pelo pai
+  @Input() dadosUsuarios: Usuario[] = [];
   itemSelecionado?: Usuario;
 
   constructor(private datePipe: DatePipe) {}
