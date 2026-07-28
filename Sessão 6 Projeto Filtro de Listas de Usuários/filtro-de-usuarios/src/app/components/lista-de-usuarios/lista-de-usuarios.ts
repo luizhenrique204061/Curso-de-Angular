@@ -15,7 +15,7 @@ export class ListaDeUsuarios {
   colunasExibidas: string[] = ['nome', 'dataCadastro', 'status'];
 
   // Agora dadosUsuarios é um Input fornecido pelo pai
-  @Input() dadosUsuarios: Usuario[] = [];
+  @Input( {required: true} ) dadosUsuarios: Usuario[] = [];
   itemSelecionado?: Usuario;
 
   constructor(private datePipe: DatePipe) {}
