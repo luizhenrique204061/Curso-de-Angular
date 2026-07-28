@@ -9,8 +9,20 @@ import { ListaDeUsuariosDaAplicacao } from './dados/lista-de-usuarios';
   styleUrl: './app.scss'
 })
 export class App {
-  dadosUsuarios: Usuario[] = ListaDeUsuariosDaAplicacao;
+  dadosUsuarios: Usuario[] = [];
   usuarioSelecionado?: Usuario;
+
+  ngOnInit(): void {
+    this.carregarUsuarios();
+  }
+
+  carregarUsuarios(): void {
+    // Hoje: pega os dados do mock local
+    this.dadosUsuarios = ListaDeUsuariosDaAplicacao;
+
+    // No futuro (com API), seria algo do tipo:
+    // this.usuarioService.obterUsuarios().subscribe(dados => this.dadosUsuarios = dados);
+  }
 
   onUsuarioSelecionado(usuario: Usuario) {
     this.usuarioSelecionado = usuario;
