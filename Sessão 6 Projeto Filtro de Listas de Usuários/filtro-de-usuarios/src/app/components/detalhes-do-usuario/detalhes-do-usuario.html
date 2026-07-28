@@ -1,3 +1,4 @@
+@if (usuario) {
 <div class="detalhes_do_usuario">
     <mat-list>
         <mat-list-item class="alinhar_texto_ao_centro">
@@ -7,47 +8,43 @@
 
         <mat-list-item>
             <span class="meu-rotulo">Nome: </span>
-            <span class="meu-valor">{{ usuario?.nome }}</span>
+            <span class="meu-valor">{{ usuario.nome }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
 
         <mat-list-item>
             <span class="meu-rotulo">Email: </span>
-            <span class="meu-valor">{{ usuario?.email }}</span>
+            <span class="meu-valor">{{ usuario.email }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
 
         <mat-list-item>
             <span class="meu-rotulo">Telefone: </span>
-            <!-- Chama o método de formatação passando o telefone -->
-            <span class="meu-valor">{{ formatarTelefone(usuario?.telefone) }}</span>
+            <span class="meu-valor">{{ formatarTelefone(usuario.telefone) }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
 
         <mat-list-item>
             <span class="meu-rotulo">Endereço: </span>
-            @if (usuario) {
             <span class="meu-valor">
-                {{ usuario.endereco.rua }}, {{ usuario.endereco.numero }}, {{ usuario.endereco.cidade }} - {{
-                usuario.endereco.estado }}
+                {{ usuario.endereco.rua }}, {{ usuario.endereco.numero }}, {{ usuario.endereco.cidade }} - {{ usuario.endereco.estado }}
             </span>
-            }
         </mat-list-item>
         <mat-divider></mat-divider>
 
         <mat-list-item>
             <span class="meu-rotulo">Ativo: </span>
             <span class="meu-valor">
-                {{ formatarAtivo(usuario?.ativo) }}
+                {{ formatarAtivo(usuario.ativo) }}
             </span>
         </mat-list-item>
         <mat-divider></mat-divider>
 
         <mat-list-item>
             <span class="meu-rotulo">Data de Cadastro: </span>
-            <!-- Chama o método de formatação criado no TS -->
-            <span class="meu-valor">{{ formatarData(usuario?.dataCadastro) }}</span>
+            <span class="meu-valor">{{ formatarData(usuario.dataCadastro) }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
     </mat-list>
 </div>
+}
