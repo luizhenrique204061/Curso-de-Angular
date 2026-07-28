@@ -27,6 +27,11 @@ export const MY_DATE_FORMATS = {
 })
 export class Filtro {
 
+  statusControl = new FormControl<string | null>(null);
+  
+  // Variável auxiliar para saber qual era o status antes do clique
+  statusSelecionado: string | null = null;
+
   statusList = [
     { valor: "Ativo" },
     { valor: "Inativo" },
@@ -39,8 +44,6 @@ export class Filtro {
   });
 
   
-
-
   // Limpa o FormGroup e sincroniza visualmente o Material Datepicker
   limparRangeData(event: MouseEvent): void {
     // Impede a propagação do evento de clique para não focar ou abrir o datepicker
@@ -53,5 +56,23 @@ export class Filtro {
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
+  }
+
+  toggleStatus(statusClicado: string): void {
+    if (this.statusSelecionado === statusClicado) {
+      // Se clicou no que já estava selecionado, limpa o campo
+      this.statusControl.setValue(null);
+      this.statusSelecionado = null;
+    } else {
+      // Se for um novo, apenas atualiza a referência
+      this.statusSelecionado = statusClicado;
+    }
+
+    // Aguarda um milissegundo para o Material fechar o painel e então remove o foco
+    setTimeout(() => {
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    });
   }
 }

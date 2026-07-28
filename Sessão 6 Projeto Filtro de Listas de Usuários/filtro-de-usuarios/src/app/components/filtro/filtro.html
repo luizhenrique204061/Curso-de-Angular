@@ -35,9 +35,16 @@
         <div class="formulario__status">
             <mat-form-field appearance="fill">
                 <mat-label>Status do Usuário</mat-label>
-                <mat-select placeholder="Selecione um status">
+
+                <!-- Adicionado o [formControl]="statusControl" -->
+                <mat-select [formControl]="statusControl" placeholder="Selecione um status">
                     @for (status of statusList; track status.valor) {
-                    <mat-option [value]="status.valor">{{ status.valor }}</mat-option>
+
+                    <!-- Adicionado o evento (click) -->
+                    <mat-option [value]="status.valor" (click)="toggleStatus(status.valor)">
+                        {{ status.valor }}
+                    </mat-option>
+
                     }
                 </mat-select>
             </mat-form-field>
