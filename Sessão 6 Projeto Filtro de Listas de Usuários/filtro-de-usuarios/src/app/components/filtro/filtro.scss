@@ -12,7 +12,13 @@
     flex-wrap: wrap;
 
     &__nome {
+        width: 250px; // Essa largura fixa é a verdadeira heroína que impede o layout de pular!
+
+        mat-form-field {
+            width: 100%;
+        }
         
+        // Todo o código de .botao-limpar e visibility foi deletado!
     }
 
     &__date_picker {

@@ -1,23 +1,18 @@
 <div class="container">
     <div class="container_esquerdo">
         <div class="div_topo">
-            <app-filtro></app-filtro>
+            <app-filtro (aplicarFiltro)="onFiltrar($event)"></app-filtro>
         </div>
 
         <div class="div_principal_esquerda">
-            <!-- Passando a lista de dados via [dadosUsuarios] -->
             <app-lista-de-usuarios 
-                [dadosUsuarios]="dadosUsuarios" 
+                [dadosUsuarios]="usuariosFiltrados" 
                 (usuarioSelecionadoEvent)="onUsuarioSelecionado($event)">
             </app-lista-de-usuarios>
         </div>
-
     </div>
 
     <div class="div_direita">
-
         <app-detalhes-do-usuario [usuario]="usuarioSelecionado"></app-detalhes-do-usuario>
     </div>
-
-
 </div>

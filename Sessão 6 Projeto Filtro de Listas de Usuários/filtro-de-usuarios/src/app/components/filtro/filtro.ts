@@ -1,6 +1,15 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
+import { Subject } from 'rxjs';
+
+
+export interface FiltroUsuariosParam {
+  nome: string | null;
+  status: string | null;
+  dataInicio: Date | null;
+  dataFim: Date | null;
+}
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -25,10 +34,16 @@ export const MY_DATE_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
   ]
 })
-export class Filtro {
+export class Filtro implements OnDestroy {
 
   statusControl = new FormControl<string | null>(null);
-  
+
+  @Output() aplicarFiltro = new EventEmitter<FiltroUsuariosParam>();
+
+  private destroy$ = new Subject<void>();
+
+  nomeControl = new FormControl<string | null>(null);
+
   // Variável auxiliar para saber qual era o status antes do clique
   statusSelecionado: string | null = null;
 
@@ -43,7 +58,23 @@ export class Filtro {
     dataFim: new FormControl<Date | null>(null),
   });
 
-  
+
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  emitirFiltro(): void {
+    this.aplicarFiltro.emit({
+      nome: this.nomeControl.value,
+      status: this.statusControl.value,
+      dataInicio: this.rangeDataGroup.value.dataInicio ?? null,
+      dataFim: this.rangeDataGroup.value.dataFim ?? null
+    });
+  }
+
+
   // Limpa o FormGroup e sincroniza visualmente o Material Datepicker
   limparRangeData(event: MouseEvent): void {
     // Impede a propagação do evento de clique para não focar ou abrir o datepicker
@@ -57,6 +88,14 @@ export class Filtro {
       document.activeElement.blur();
     }
   }
+
+  limparNome(event: MouseEvent): void {
+  // Impede que o clique no botão ative ou foque indesejadamente o input
+  event.stopPropagation();
+  
+  // Reseta o valor do control para null (ou string vazia '')
+  this.nomeControl.setValue(null);
+}
 
   toggleStatus(statusClicado: string): void {
     if (this.statusSelecionado === statusClicado) {

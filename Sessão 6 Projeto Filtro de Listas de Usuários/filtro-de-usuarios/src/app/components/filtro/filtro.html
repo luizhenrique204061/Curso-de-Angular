@@ -1,14 +1,20 @@
 <div class="filtro">
-    <form class="formulario">
+    <!-- Adicionado (ngSubmit) caso o usuário aperte 'Enter' em algum input -->
+    <form class="formulario" (ngSubmit)="emitirFiltro()">
         <div class="formulario__nome">
             <mat-form-field appearance="fill">
                 <mat-label>Nome</mat-label>
-                <input matInput placeholder="Ex. Pizza" value="Devoe">
+                <input matInput [formControl]="nomeControl" placeholder="Ex. Pizza">
+
+                @if (nomeControl.value) {
+                <button mat-icon-button matSuffix type="button" aria-label="Limpar nome" (click)="limparNome($event)">
+                    <mat-icon>clear</mat-icon>
+                </button>
+                }
             </mat-form-field>
         </div>
 
         <div class="formulario__date_picker">
-            <!-- Adicionado (click)="picker.open()" no mat-form-field -->
             <mat-form-field appearance="fill" (click)="picker.open()" class="campo_data">
                 <mat-label>Data de Cadastro</mat-label>
 
@@ -36,22 +42,19 @@
             <mat-form-field appearance="fill">
                 <mat-label>Status do Usuário</mat-label>
 
-                <!-- Adicionado o [formControl]="statusControl" -->
                 <mat-select [formControl]="statusControl" placeholder="Selecione um status">
                     @for (status of statusList; track status.valor) {
-
-                    <!-- Adicionado o evento (click) -->
                     <mat-option [value]="status.valor" (click)="toggleStatus(status.valor)">
                         {{ status.valor }}
                     </mat-option>
-
                     }
                 </mat-select>
             </mat-form-field>
         </div>
 
         <div class="formulario__botao">
-            <button mat-raised-button color="primary">Filtrar</button>
+            <!-- Dispara a emissão apenas no clique -->
+            <button mat-raised-button color="primary" type="submit" (click)="emitirFiltro()">Filtrar</button>
         </div>
 
     </form>
