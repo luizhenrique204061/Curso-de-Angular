@@ -42,7 +42,8 @@
             <mat-form-field appearance="fill">
                 <mat-label>Status do Usuário</mat-label>
 
-                <mat-select [formControl]="statusControl" placeholder="Selecione um status">
+                <mat-select [formControl]="statusControl" placeholder="Selecione um status"
+                    (openedChange)="onSelectClosed($event)">
                     @for (status of statusList; track status.valor) {
                     <mat-option [value]="status.valor" (click)="toggleStatus(status.valor)">
                         {{ status.valor }}

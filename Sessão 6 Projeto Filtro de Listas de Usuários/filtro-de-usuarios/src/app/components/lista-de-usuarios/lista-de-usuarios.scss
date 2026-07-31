@@ -1,34 +1,64 @@
 .lista_de_usuarios {
     width: 100%;
-    height: 100%;
-    padding: 20px;
+    padding: 10px; // Reduzido para dar mais espaço útil no celular
+    overflow-x: auto; // Garante que, se a tabela não couber, role só a área dela
 
-    &__item {
-        cursor: pointer;
+    @media (min-width: 900px) {
+        padding: 20px;
     }
 }
 
-
+// Tabela ocupa 100% mas tem um mínimo seguro
+mat-table, table {
+    width: 100%;
+    min-width: 320px; 
+}
 
 tr.mat-mdc-row {
     cursor: pointer;
     transition: background-color 0.2s ease;
 
-    &:hover {
-        background-color: #f5f5f5; // Efeito hover suave
+    // Evita apenas o flash cinza/azul ao tocar na linha
+    -webkit-tap-highlight-color: transparent;
+
+    // Desativa comportamentos nativos de duplo toque
+    touch-action: manipulation;
+
+    // APLIQUE A MEDIA QUERY AQUI:
+    // O hover só vai funcionar em telas com mouse (computadores)
+    @media (hover: hover) {
+        &:hover {
+            background-color: #f5f5f5;
+        }
     }
 
     &.linha-selecionada {
-        background-color: #e3f2fd; // Cor de fundo do destaque (azul claro)
+        background-color: #e3f2fd;
         
-        // Se quiser destacar o texto das células da linha selecionada
         td {
             font-weight: 500;
         }
     }
 }
 
-
+// Ajuste fino das colunas
 .mat-mdc-cell, .mat-mdc-header-cell {
-    width: 33.33%; // Ou defina larguras específicas para cada coluna
+    padding: 8px 4px; // Menos espaçamento lateral no celular
+
+    @media (min-width: 600px) {
+        padding: 16px;
+    }
+}
+
+// Larguras proporcionais mais inteligentes
+.mat-column-nome {
+    width: 45%;
+}
+
+.mat-column-dataCadastro {
+    width: 35%;
+}
+
+.mat-column-status {
+    width: 20%;
 }

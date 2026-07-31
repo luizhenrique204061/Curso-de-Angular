@@ -1,30 +1,36 @@
 .container {
   display: flex;
-  flex-direction: column; // No mobile (padrão): tudo em coluna (um embaixo do outro)
+  flex-direction: column;
   width: 100%;
   min-height: 100dvh;
-
-  // Telas maiores (tablets grandes e desktops): volta para o layout lado a lado
+  box-sizing: border-box;
+  padding-top: 20px; // Padding interno para o mobile (evita quebrar a rolagem)
+  
   @media (min-width: 900px) {
     flex-direction: row;
     height: 100dvh;
+    padding-top: 0; // No desktop o padding do container zera
   }
 }
 
 .container_esquerdo {
-  width: 100%; // Mobile: 100% da largura
+  width: 100%;
   display: flex;
   flex-direction: column;
 
   @media (min-width: 900px) {
-    width: 70%; // Desktop: volta para 70%
+    width: 70%;
     height: 100%;
   }
 }
 
 .div_topo {
   width: 100%;
-  margin-top: 50px;
+
+  // Aplica o espaçamento de 50px APENAS a partir de 900px (Desktop)
+  @media (min-width: 900px) {
+    margin-top: 50px;
+  }
 }
 
 .div_principal_esquerda {
@@ -32,10 +38,10 @@
 }
 
 .div_direita {
-  width: 100%; // Mobile: fica abaixo da tabela e ocupa 100% da largura
+  width: 100%;
 
   @media (min-width: 900px) {
-    width: 30%; // Desktop: volta para 30%
+    width: 30%;
     height: 100dvh;
   }
 }

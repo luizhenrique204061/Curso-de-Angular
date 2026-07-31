@@ -1,21 +1,57 @@
 .detalhes_do_usuario {
     width: 100%;
     height: 100%;
+    padding: 10px; // Garante folga das bordas da tela no mobile
+
+    @media (min-width: 900px) {
+        padding: 20px;
+    }
 }
 
+// Permite que o item do Material expanda verticalmente se o texto for longo
+.item-personalizado {
+    height: auto !important;
+    min-height: 48px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    // Garante flexibilidade dos elementos internos do mat-list-item
+    ::ng-deep .mdc-list-item__content {
+        display: flex;
+        flex-wrap: wrap; // No mobile, se não couber lado a lado, o valor desce para a linha seguinte
+        align-items: center;
+        gap: 6px;
+    }
+}
 
 .meu-rotulo {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #333;
+    font-size: 1rem; // Ajustado de 1.25rem para 1rem no mobile para caber melhor
+    font-weight: bold;
+    color: #333;
+
+    @media (min-width: 600px) {
+        font-size: 1.1rem;
+    }
 }
 
 .meu-valor {
-  font-size: 1rem;
+    font-size: 0.95rem;
+    color: #555;
+    word-break: break-word; // Quebra e-mails ou endereços muito compridos sem estouro horizontal
 }
 
 .titulo-destaque {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #111;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #111;
+
+    @media (min-width: 600px) {
+        font-size: 1.5rem;
+    }
+}
+
+.alinhar_texto_ao_centro {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }

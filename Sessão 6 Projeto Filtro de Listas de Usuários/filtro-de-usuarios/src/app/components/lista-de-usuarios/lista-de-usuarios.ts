@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Usuario } from '../../classes/usuario';
-import { ListaDeUsuariosDaAplicacao } from '../../dados/lista-de-usuarios';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -21,13 +20,17 @@ export class ListaDeUsuarios {
   constructor(private datePipe: DatePipe) {}
 
   usuarioSelecionado(usuario: Usuario) {
-    // Se o usuário clicado já estiver selecionado, desmarca ele
+    // 1. Limpa imediatamente qualquer seleção de texto causada por toques duplos/rápidos
+    if (window.getSelection()) {
+      window.getSelection()?.removeAllRanges();
+    }
+
+    // 2. Lógica normal de seleção
     if (this.itemSelecionado === usuario) {
       this.itemSelecionado = undefined;
       this.usuarioSelecionadoEvent.emit(undefined);
       console.log('Usuário desmarcado');
     } else {
-      // Caso contrário, seleciona o novo usuário normalmente
       this.itemSelecionado = usuario;
       this.usuarioSelecionadoEvent.emit(usuario);
       console.log('Usuário selecionado:', usuario);
@@ -44,5 +47,12 @@ export class ListaDeUsuarios {
     if (ativo === undefined || ativo === null) return '';
     return ativo ? 'Ativo' : 'Inativo';
   }
+
+  onTouchStart(event: TouchEvent): void {
+  // Se o usuário já tiver um texto selecionado ao dar um toque rápido, limpa a seleção
+  if (window.getSelection()) {
+    window.getSelection()?.removeAllRanges();
+  }
+}
 
 }

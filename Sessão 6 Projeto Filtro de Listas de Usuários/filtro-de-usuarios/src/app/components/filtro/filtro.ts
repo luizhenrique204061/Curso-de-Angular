@@ -93,6 +93,17 @@ export class Filtro implements OnDestroy {
     });
   }
 
+  onSelectClosed(isOpen: boolean): void {
+    if (!isOpen) {
+      // Quando fechar (isOpen == false), remove o foco do elemento
+      setTimeout(() => {
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+      });
+    }
+  }
+
 
   // Limpa o FormGroup e sincroniza visualmente o Material Datepicker
   limparRangeData(event: MouseEvent): void {

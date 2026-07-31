@@ -6,25 +6,25 @@
         </mat-list-item>
         <mat-divider></mat-divider>
 
-        <mat-list-item>
+        <mat-list-item class="item-personalizado">
             <span class="meu-rotulo">Nome: </span>
             <span class="meu-valor">{{ usuario.nome }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
 
-        <mat-list-item>
+        <mat-list-item class="item-personalizado">
             <span class="meu-rotulo">Email: </span>
             <span class="meu-valor">{{ usuario.email }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
 
-        <mat-list-item>
+        <mat-list-item class="item-personalizado">
             <span class="meu-rotulo">Telefone: </span>
             <span class="meu-valor">{{ formatarTelefone(usuario.telefone) }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
 
-        <mat-list-item>
+        <mat-list-item class="item-personalizado">
             <span class="meu-rotulo">Endereço: </span>
             <span class="meu-valor">
                 {{ usuario.endereco.rua }}, {{ usuario.endereco.numero }}, {{ usuario.endereco.cidade }} - {{ usuario.endereco.estado }}
@@ -32,7 +32,7 @@
         </mat-list-item>
         <mat-divider></mat-divider>
 
-        <mat-list-item>
+        <mat-list-item class="item-personalizado">
             <span class="meu-rotulo">Ativo: </span>
             <span class="meu-valor">
                 {{ formatarAtivo(usuario.ativo) }}
@@ -40,7 +40,7 @@
         </mat-list-item>
         <mat-divider></mat-divider>
 
-        <mat-list-item>
+        <mat-list-item class="item-personalizado">
             <span class="meu-rotulo">Data de Cadastro: </span>
             <span class="meu-valor">{{ formatarData(usuario.dataCadastro) }}</span>
         </mat-list-item>
