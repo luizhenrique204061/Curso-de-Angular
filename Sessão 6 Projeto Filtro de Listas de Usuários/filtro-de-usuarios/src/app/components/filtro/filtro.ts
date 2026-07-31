@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subject } from 'rxjs';
 
 
@@ -58,7 +59,7 @@ export class Filtro implements OnDestroy {
     dataFim: new FormControl<Date | null>(null),
   });
 
-
+  constructor(private snackBar: MatSnackBar) {}
 
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -66,11 +67,29 @@ export class Filtro implements OnDestroy {
   }
 
   emitirFiltro(): void {
+    const { dataInicio, dataFim } = this.rangeDataGroup.value;
+
+    // Verifica se preencheu apenas uma das datas
+    const rangeIncompleto = (dataInicio && !dataFim) || (!dataInicio && dataFim);
+
+    if (rangeIncompleto) {
+      this.snackBar.open(
+        'Por favor, informe a data inicial e a data final.',
+        'Fechar',
+        {
+          duration: 4000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+      );
+      return;
+    }
+
     this.aplicarFiltro.emit({
       nome: this.nomeControl.value,
       status: this.statusControl.value,
-      dataInicio: this.rangeDataGroup.value.dataInicio ?? null,
-      dataFim: this.rangeDataGroup.value.dataFim ?? null
+      dataInicio: dataInicio ?? null,
+      dataFim: dataFim ?? null
     });
   }
 

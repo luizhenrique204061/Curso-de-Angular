@@ -9,6 +9,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -21,7 +22,8 @@ import { MatTableModule } from '@angular/material/table';
     MatDatepickerModule,
     MatSelectModule,
     MatButtonModule,
-    MatTableModule],
+    MatTableModule,
+    MatSnackBarModule],
   providers: [provideNativeDateAdapter()],
   exports: [
     MatListModule,
@@ -30,6 +32,7 @@ import { MatTableModule } from '@angular/material/table';
     MatDatepickerModule,
     MatSelectModule,
     MatButtonModule,
-    MatTableModule]
+    MatTableModule,
+    MatSnackBarModule]
 })
 export class AngularMaterialModule { }
