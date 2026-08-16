@@ -4,8 +4,10 @@
   "cli": {
     "packageManager": "npm",
     "cache": {
-      "enabled": false
-    }
+      "enabled": true,
+      "environment": "all"
+    },
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
