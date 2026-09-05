@@ -1,0 +1,49 @@
+.card_de_cartao_de_credito {
+    border: none;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+
+
+    &__cabecalho {
+        padding: 15px;
+        background-color: rgb(233, 129, 50);
+    }
+
+
+    &__cabecalho_titulo {
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-size: 20px;
+        }
+    }
+
+
+    &__cabecalho_icone {
+        width: 40px;
+        margin-right: 10px;
+    }
+
+
+    &__conteudo {
+        padding: 15px;
+        overflow: hidden;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: white;
+    }
+
+
+    &__conteudo_item {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+
+    &__conteudo_linha {
+        border: 0.5px solid #9e9e9e;
+    }
+}
