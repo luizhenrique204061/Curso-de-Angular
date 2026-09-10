@@ -1,44 +1,5 @@
+@use '../../estilos-comuns/estilos-comuns' as comum;
+
 .card_de_cartao_de_debito {
-    border: none;
-    overflow: hidden;
-    border-radius: 5px;
-    background-color: white;
-
-
-    &__cabecalho {
-        padding: 15px;
-        background-color: rgb(233, 129, 50);
-    }
-
-
-    &__cabecalho_titulo {
-        display: flex;
-        align-items: center;
-
-        h1 {
-            font-size: 20px;
-        }
-    }
-
-
-    &__cabecalho_titulo_icone {
-        width: 40px;
-        margin-right: 10px;
-    }
-
-
-    &__conteudo_item {
-        padding: 20px;
-    }
-
-
-    &__conteudo {
-        padding: 15px;
-        overflow: hidden;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        background-color: white;
-        
-    }
-
+  @include comum.card_base();
 }
