@@ -1,34 +1,34 @@
 @if (dados) {
-  <div class="card_de_balanco">
+  <div class="card_de_saldo">
     <!-- Cabeçalho -->
-    <div class="card_de_balanco__cabecalho">
-      <div class="card_de_balanco__cabecalho_titulo">
-        <img class="card_de_balanco__cabecalho_icone" src="/icones/icon-hand.png" alt="Saldo" />
+    <div class="card_de_saldo__cabecalho">
+      <div class="card_de_saldo__cabecalho_titulo">
+        <img class="card_de_saldo__cabecalho_icone" src="/icones/icon-hand.png" alt="Saldo" />
         <h1>Saldo Disponível</h1>
       </div>
       <p>{{ dados.saldoDisponivel.toNumber() | currency:'BRL' }}</p>
     </div>
 
     <!-- Contêiner principal do corpo -->
-    <div class="card_de_balanco__conteudo">
+    <div class="card_de_saldo__conteudo">
 
       <!-- Laço nativo: o track identifica unicamente cada elemento para performance -->
       @for (item of dados.itens; track item.descricao) {
-        <div class="card_de_balanco__conteudo_item">
+        <div class="card_de_saldo__conteudo_item">
           <p>{{ item.descricao }}</p>
           <p>{{ item.valor.toNumber() | currency:'BRL' }}</p>
         </div>
-        <div class="card_de_balanco__conteudo_linha"></div>
+        <div class="card_de_saldo__conteudo_linha"></div>
       }
 
       <!-- Sumário mantido dentro do conteúdo -->
-      <div class="card_de_balanco__conteudo_sumario">
-        <div class="card_de_balanco__conteudo_item">
+      <div class="card_de_saldo__conteudo_sumario">
+        <div class="card_de_saldo__conteudo_item">
           <p>SALDO TOTAL</p>
           <p>{{ dados.saldoTotal.toNumber() | currency:'BRL' }}</p>
         </div>
 
-        <div class="card_de_balanco__conteudo_item">
+        <div class="card_de_saldo__conteudo_item">
           <p>LIVRE PARA MOVIMENTAÇÃO</p>
           <p>{{ dados.livreMovimentacao.toNumber() | currency:'BRL' }}</p>
         </div>

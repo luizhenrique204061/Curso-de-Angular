@@ -1,6 +1,6 @@
 @use '../../estilos-comuns/estilos-comuns' as comum;
 
-.card_de_balanco {
+.card_de_saldo {
   @include comum.card_base();
 
   &__conteudo_sumario {
