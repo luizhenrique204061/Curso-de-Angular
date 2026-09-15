@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CartaoDeCreditoModelo } from '../../classes/CartaoDeCreditoModelo';
 
 @Component({
   selector: 'app-cartao-de-credito',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './cartao-de-credito.scss',
   templateUrl: './cartao-de-credito.html',
 })
-export class CartaoDeCredito {}
+export class CartaoDeCredito {
+  @Input() dados?: CartaoDeCreditoModelo;
+}

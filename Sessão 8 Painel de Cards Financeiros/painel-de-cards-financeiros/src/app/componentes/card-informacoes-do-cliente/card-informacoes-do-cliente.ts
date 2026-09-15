@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Cliente } from '../../classes/Cliente';
 
 @Component({
   selector: 'app-card-informacoes-do-cliente',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './card-informacoes-do-cliente.scss',
   templateUrl: './card-informacoes-do-cliente.html',
 })
-export class CardInformacoesDoCliente {}
+export class CardInformacoesDoCliente {
+  @Input() cliente?: Cliente;
+}

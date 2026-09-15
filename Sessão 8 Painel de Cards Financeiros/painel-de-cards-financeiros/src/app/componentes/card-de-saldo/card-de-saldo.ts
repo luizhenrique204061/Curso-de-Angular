@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { BalancoFinanceiro } from '../../classes/BalancoFinanceiro';
 
 @Component({
   selector: 'app-card-de-saldo',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './card-de-saldo.scss',
   templateUrl: './card-de-saldo.html',
 })
-export class CardDeSaldo {}
+export class CardDeSaldo {
+  @Input() dados?:BalancoFinanceiro
+}

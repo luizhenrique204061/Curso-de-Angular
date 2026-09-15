@@ -1,14 +1,37 @@
 <div class="card_de_cartao_de_debito">
-    <div class="card_de_cartao_de_debito__cabecalho">
-        <div class="card_de_cartao_de_debito__cabecalho_titulo">
-            <img class="card_de_cartao_de_debito__cabecalho_titulo_icone" 
-            src="/icones/icon-debit-card.png" />
-            <h1>Cartão de Débito</h1>
-        </div>
+  <!-- Cabeçalho visível em qualquer estado -->
+  <div class="card_de_cartao_de_debito__cabecalho">
+    <div class="card_de_cartao_de_debito__cabecalho_titulo">
+      <img
+        class="card_de_cartao_de_debito__cabecalho_titulo_icone"
+        src="/icones/icon-debit-card.png"
+        alt="Cartão de Débito"
+      />
+      <h1>Cartão de Débito</h1>
     </div>
-    <div class="card_de_cartao_de_debito__conteudo">
-        <div class="card_de_cartao_de_debito__conteudo_item">
-            <p>Este cliente não possui Cartão de Débito.</p>
-        </div>
-    </div>
+  </div>
+
+  <!-- Conteúdo dinâmico -->
+  <div class="card_de_cartao_de_debito__conteudo">
+    @if (dados) {
+      <div class="card_de_cartao_de_debito__conteudo_item">
+        <p>
+          {{ dados.numero }} <br />
+          {{ dados.titular }}
+        </p>
+        <p>{{ dados.bandeira }}</p>
+      </div>
+
+      <div class="card_de_cartao_de_debito__conteudo_linha"></div>
+
+      <div class="card_de_cartao_de_debito__conteudo_item">
+        <p>Limite Diário</p>
+        <p>{{ dados.limiteDiario.toNumber() | currency:'BRL' }}</p>
+      </div>
+    } @else {
+      <div class="card_de_cartao_de_debito__conteudo_item">
+        <p>Este cliente não possui Cartão de Débito.</p>
+      </div>
+    }
+  </div>
 </div>

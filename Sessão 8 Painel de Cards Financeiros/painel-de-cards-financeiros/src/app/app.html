@@ -2,29 +2,26 @@
 
   <div class="item">
 
-    <app-card-de-saldo></app-card-de-saldo>
+    <app-card-de-saldo [dados]="dadosSaldo"></app-card-de-saldo>
+
+  </div>
+
+  <div class="item">
+
+    <app-cartao-de-credito [dados]="dadosCartaoCredito"></app-cartao-de-credito>
 
   </div>
 
 
   <div class="item">
 
-    <app-cartao-de-credito></app-cartao-de-credito>
+    <app-cartao-de-debito [dados]="dadosCartaoDebito"></app-cartao-de-debito>
 
   </div>
 
   <div class="item">
 
-    <app-cartao-de-debito></app-cartao-de-debito>
-
+    <app-card-informacoes-do-cliente [cliente]="dadosCliente"></app-card-informacoes-do-cliente>
+    
   </div>
-
-
-  <div class="item">
-
-    <app-card-informacoes-do-cliente></app-card-informacoes-do-cliente>
-
-  </div>
-
-
 </div>
