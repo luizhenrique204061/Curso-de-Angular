@@ -1,10 +1,8 @@
-import Decimal from "decimal.js";
-
 export class ItemSaldo {
   public descricao: string;
-  public valor: Decimal;
+  public valor: number;
 
-  constructor(descricao: string, valor: Decimal) {
+  constructor(descricao: string, valor: number) {
     this.descricao = descricao;
     this.valor = valor;
   }
