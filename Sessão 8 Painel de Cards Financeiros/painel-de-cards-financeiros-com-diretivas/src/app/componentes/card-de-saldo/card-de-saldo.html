@@ -1,0 +1,37 @@
+@if (dados) {
+  <div appCard>
+    <!-- Cabeçalho gerenciado pela diretiva -->
+    <div appCardHeader>
+      <div class="card_de_saldo__cabecalho_titulo">
+        <img class="card_de_saldo__cabecalho_icone" src="/icones/icon-hand.png" alt="Saldo" />
+        <h1>Saldo Disponível</h1>
+      </div>
+      <p>{{ dados.saldoDisponivel | currency:'BRL' }}</p>
+    </div>
+
+    <!-- Contêiner principal do corpo -->
+    <div class="card_de_saldo__conteudo">
+
+      @for (item of dados.itens; track item.descricao) {
+        <div class="card_de_saldo__conteudo_item">
+          <p>{{ item.descricao }}</p>
+          <p>{{ item.valor | currency:'BRL' }}</p>
+        </div>
+        <div class="card_de_saldo__conteudo_linha"></div>
+      }
+
+      <div class="card_de_saldo__conteudo_sumario">
+        <div class="card_de_saldo__conteudo_item">
+          <p>SALDO TOTAL</p>
+          <p>{{ dados.saldoTotal | currency:'BRL' }}</p>
+        </div>
+
+        <div class="card_de_saldo__conteudo_item">
+          <p>LIVRE PARA MOVIMENTAÇÃO</p>
+          <p>{{ dados.livreMovimentacao | currency:'BRL' }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+}

@@ -1,0 +1,49 @@
+@if (dados) {
+  <div appCard>
+    <div appCardHeader>
+      <div class="card_de_cartao_de_credito__cabecalho_titulo">
+        <img class="card_de_cartao_de_credito__cabecalho_icone" src="/icones/icon-credit-card.png" alt="Cartão de Crédito" />
+        <h1>Cartão de Crédito</h1>
+      </div>
+    </div>
+
+    <div class="card_de_cartao_de_credito__conteudo">
+      <div class="card_de_cartao_de_credito__conteudo_item">
+        <p>
+          {{ dados.numero }} <br />
+          {{ dados.titular }}
+        </p>
+        <p>{{ dados.bandeira }}</p>
+      </div>
+
+      <div class="card_de_cartao_de_credito__conteudo_item">
+        <p>Limite de Compra</p>
+        <p>{{ dados.limiteCompra | currency:'BRL' }}</p>
+      </div>
+
+      <div class="card_de_cartao_de_credito__conteudo_linha"></div>
+
+      <div class="card_de_cartao_de_credito__conteudo_item">
+        <p>Disponível</p>
+        <p>{{ dados.disponivelCompra | currency:'BRL' }}</p>
+      </div>
+
+      <div class="card_de_cartao_de_credito__conteudo_item">
+        <p>Limite de Saque</p>
+        <p>{{ dados.limiteSaque | currency:'BRL' }}</p>
+      </div>
+
+      <div class="card_de_cartao_de_credito__conteudo_linha"></div>
+
+      <div class="card_de_cartao_de_credito__conteudo_item">
+        <p>Disponível</p>
+        <p>{{ dados.disponivelSaque | currency:'BRL' }}</p>
+      </div>
+
+      <div class="card_de_cartao_de_credito__conteudo_item">
+        <p>Limite Total Utilizado</p>
+        <p>{{ dados.limiteTotalUtilizado | currency:'BRL' }}</p>
+      </div>
+    </div>
+  </div>
+}

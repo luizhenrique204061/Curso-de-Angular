@@ -1,0 +1,5 @@
+@use '../../estilos-comuns/estilos-comuns' as comum;
+
+.card_de_informacoes_do_cliente {
+  @include comum.card_base();
+}

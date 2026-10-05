@@ -1,0 +1,51 @@
+@mixin card_base($cor-fundo-cabecalho: rgb(233, 129, 50)) {
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: white;
+
+  &__cabecalho {
+    padding: 15px;
+    background-color: $cor-fundo-cabecalho;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p, h1 {
+      font-size: 20px;
+    }
+  }
+
+  &__cabecalho_titulo {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      font-size: 20px;
+    }
+
+    img {
+      width: 40px;
+      margin-right: 10px;
+    }
+  }
+
+  &__conteudo {
+    padding: 15px;
+    overflow: hidden;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+  }
+
+  &__conteudo_item {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  &__conteudo_linha {
+    border: none;
+    border-bottom: 0.5px solid #9e9e9e;
+  }
+}
